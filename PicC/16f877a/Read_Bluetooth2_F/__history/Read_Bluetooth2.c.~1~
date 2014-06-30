@@ -1,0 +1,11 @@
+#include <Read_Bluetooth2.h>
+
+void main()
+{
+
+	while(TRUE)
+	{
+		//TODO: User Code
+	}
+
+}

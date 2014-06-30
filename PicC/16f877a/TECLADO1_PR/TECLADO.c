@@ -13,11 +13,16 @@ char tecla;
 
 
 void main()
-{
+{  
+lcd_init();
 
    while(TRUE)
    {
       tecla = kbd_getc();
+      if(tecla != 0){
+         lcd_putc(tecla);
+      }
+      delay_ms(30);
    }
 
 }

@@ -1,0 +1,22 @@
+[PROJECT]
+Target=Read_Bluetooth2.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.008
+Compiler=PCM
+CCSVersion=5.008
+[Target Data]
+FileList=Read_Bluetooth2.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Read_Bluetooth2\Read_Bluetooth2]
+Type=4
+[mru-list]
+1=Read_Bluetooth2.c
+[Opened Files]
+1=Read_Bluetooth2.c
+2=
+[Read_Bluetooth2.c]
+Type=4
+[Units]
+Count=1
+1=Read_Bluetooth2 (main)

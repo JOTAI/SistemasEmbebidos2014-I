@@ -1,6 +1,5 @@
 004-005 @READ_PROGRAM_MEMORY8.P1
 004-005 @WRITE_PROGRAM_MEMORY8.P2
-008     PORTD
 008     PSP_DATA
 015     CCP_1_LOW
 015     CCP_1
@@ -66,24 +65,24 @@ FFF     @INTERRUPT_AREA
 
 ROM Allocation:
 00002F  @delay_ms1
-000043  Disparar
-000074  @goto10623
-000080  ext_isr
-000087  Cargar_configuracion
-000093  Configurar_interrupciones
-00009D  VariacionAnguloAplauso
-0000B7  MAIN
-0000B7  @cinit1
-0000C4  @cinit2
+000044  Disparar
+000075  @goto10624
+000081  ext_isr
+000088  Cargar_configuracion
+000094  Configurar_interrupciones
+00009E  VariacionAnguloAplauso
+0000B8  MAIN
+0000B8  @cinit1
+0000C5  @cinit2
 
 Project Directory:
-    D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\Dimmer\
+    D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Dimmer_F\
 
 Project Files:
-    Dimmer.c                                                [14-jun-14 20:57  CRC=300BC1E7]
-    C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 21:28  CRC=4E65664C]
+    Dimmer.c                                                [28-jun-14 18:41  CRC=33C05E57]
+    C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 14:28  CRC=4E65664C]
 
-Source signature=CCD68E7F
+Source signature=D08B2AEF
 
 Units:
     Dimmer (main)

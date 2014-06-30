@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.008, 5967               14-jun-14 20:57
+CCS PCM C Compiler, Version 5.008, 5967               28-jun-14 18:42
 
-               Filename:   D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\Dimmer\Dimmer.lst
+               Filename:   D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Dimmer_F\Dimmer.lst
 
-               ROM used:   205 words (3%)
+               ROM used:   206 words (3%)
                            Largest free fragment is 2048
                RAM used:   15 (4%) at main() level
                            19 (5%) worst case
@@ -12,7 +12,7 @@ CCS PCM C Compiler, Version 5.008, 5967               14-jun-14 20:57
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   0B7
+0002:  GOTO   0B8
 0003:  NOP
 0004:  MOVWF  7F
 0005:  SWAPF  03,W
@@ -56,50 +56,52 @@ CCS PCM C Compiler, Version 5.008, 5967               14-jun-14 20:57
 002B:  RETFIE
 002C:  BCF    0A.3
 002D:  BCF    0A.4
-002E:  GOTO   080
+002E:  GOTO   081
 .................... #include <16f877a.h> 
 .................... //////// Standard Header file for the PIC16F877A device //////////////// 
 .................... #device PIC16F877A 
 *
-0074:  BCF    0A.0
-0075:  BCF    0A.1
-0076:  BCF    0A.2
-0077:  ADDWF  02,F
-0078:  GOTO   049
-0079:  GOTO   04B
-007A:  GOTO   050
-007B:  GOTO   055
-007C:  GOTO   05A
-007D:  GOTO   05F
-007E:  GOTO   064
-007F:  GOTO   069
+0075:  BCF    0A.0
+0076:  BCF    0A.1
+0077:  BCF    0A.2
+0078:  ADDWF  02,F
+0079:  GOTO   04A
+007A:  GOTO   04C
+007B:  GOTO   051
+007C:  GOTO   056
+007D:  GOTO   05B
+007E:  GOTO   060
+007F:  GOTO   065
+0080:  GOTO   06A
 ....................  
 .................... #list 
 ....................  
+.................... //#device ICD=TRUE 
 .................... #FUSES HS,NOWDT,NOPROTECT,NOLVP  
-.................... #USE delay(clock=20000000) 
+.................... #USE delay(clock=10000000) 
 *
 002F:  MOVLW  2D
 0030:  MOVWF  04
 0031:  BCF    03.7
 0032:  MOVF   00,W
 0033:  BTFSC  03.2
-0034:  GOTO   042
-0035:  MOVLW  06
+0034:  GOTO   043
+0035:  MOVLW  03
 0036:  MOVWF  78
 0037:  CLRF   77
 0038:  DECFSZ 77,F
 0039:  GOTO   038
 003A:  DECFSZ 78,F
 003B:  GOTO   037
-003C:  MOVLW  7B
+003C:  MOVLW  3C
 003D:  MOVWF  77
 003E:  DECFSZ 77,F
 003F:  GOTO   03E
-0040:  DECFSZ 00,F
-0041:  GOTO   035
-0042:  RETURN
-.................... #BYTE PORTD = 0x08   //Asignando PORTD 
+0040:  GOTO   041
+0041:  DECFSZ 00,F
+0042:  GOTO   035
+0043:  RETURN
+.................... //#BYTE PORTD = 0x08   //Asignando PORTD 
 .................... #USE FAST_IO(B)   //Puerto B 
 .................... #USE FAST_IO(D)   //Puerto D 
 ....................  
@@ -123,51 +125,51 @@ CCS PCM C Compiler, Version 5.008, 5967               14-jun-14 20:57
 .................... void ext_isr(){ 
 ....................    Disparar(angulo); 
 *
-0080:  MOVF   27,W
-0081:  MOVWF  2C
-0082:  GOTO   043
-0083:  BCF    0B.1
-0084:  BCF    0A.3
-0085:  BCF    0A.4
-0086:  GOTO   01B
+0081:  MOVF   27,W
+0082:  MOVWF  2C
+0083:  GOTO   044
+0084:  BCF    0B.1
+0085:  BCF    0A.3
+0086:  BCF    0A.4
+0087:  GOTO   01B
 ....................    } 
 .................... // ************************************************** 
 ....................  
 .................... // FUNCION PRINCIPAL 
 .................... void main() 
 *
-00B7:  MOVF   03,W
-00B8:  ANDLW  1F
-00B9:  MOVWF  03
-00BA:  CLRF   27
-00BB:  CLRF   28
-00BC:  CLRF   29
-00BD:  BSF    03.5
-00BE:  BSF    1F.0
-00BF:  BSF    1F.1
-00C0:  BSF    1F.2
-00C1:  BCF    1F.3
-00C2:  MOVLW  07
-00C3:  MOVWF  1C
-00C4:  BCF    03.7
+00B8:  MOVF   03,W
+00B9:  ANDLW  1F
+00BA:  MOVWF  03
+00BB:  CLRF   27
+00BC:  CLRF   28
+00BD:  CLRF   29
+00BE:  BSF    03.5
+00BF:  BSF    1F.0
+00C0:  BSF    1F.1
+00C1:  BSF    1F.2
+00C2:  BCF    1F.3
+00C3:  MOVLW  07
+00C4:  MOVWF  1C
+00C5:  BCF    03.7
 .................... {   
 ....................    Cargar_configuracion(); 
-00C5:  BCF    03.5
-00C6:  GOTO   087
+00C6:  BCF    03.5
+00C7:  GOTO   088
 ....................    Configurar_interrupciones(); 
-00C7:  GOTO   093
+00C8:  GOTO   094
 ....................        
 ....................    while(true) 
 ....................    {   
 ....................       VariacionAnguloAplauso(1); 
-00C8:  MOVLW  01
-00C9:  MOVWF  2A
-00CA:  GOTO   09D
-00CB:  GOTO   0C8
+00C9:  MOVLW  01
+00CA:  MOVWF  2A
+00CB:  GOTO   09E
+00CC:  GOTO   0C9
 ....................    } 
 .................... } 
 ....................  
-00CC:  SLEEP
+00CD:  SLEEP
 .................... // **************************************** 
 .................... // Definicion de las Funciones 
 ....................  
@@ -175,163 +177,172 @@ CCS PCM C Compiler, Version 5.008, 5967               14-jun-14 20:57
 ....................    // Portb1_ant y Portb1_now  fueron iniciados en 0 
 ....................    if (input(PIN_B1) == 1){        //  verifica si el PORTB,1 es 1 
 *
-009D:  BTFSS  06.1
-009E:  GOTO   0A4
+009E:  BTFSS  06.1
+009F:  GOTO   0A5
 ....................          Portb1_ant = Portb1_now; 
-009F:  MOVF   29,W
-00A0:  MOVWF  28
+00A0:  MOVF   29,W
+00A1:  MOVWF  28
 ....................          Portb1_now = 1; 
-00A1:  MOVLW  01
-00A2:  MOVWF  29
+00A2:  MOVLW  01
+00A3:  MOVWF  29
 ....................       }else { 
-00A3:  GOTO   0A7
+00A4:  GOTO   0A8
 ....................          Portb1_ant = Portb1_now; 
-00A4:  MOVF   29,W
-00A5:  MOVWF  28
+00A5:  MOVF   29,W
+00A6:  MOVWF  28
 ....................          Portb1_now = 0; 
-00A6:  CLRF   29
+00A7:  CLRF   29
 ....................       } 
 ....................     if (Portb1_ant == 0 && Portb1_now == 1){ 
-00A7:  MOVF   28,F
-00A8:  BTFSS  03.2
-00A9:  GOTO   0B4
-00AA:  DECFSZ 29,W
-00AB:  GOTO   0B4
+00A8:  MOVF   28,F
+00A9:  BTFSS  03.2
+00AA:  GOTO   0B5
+00AB:  DECFSZ 29,W
+00AC:  GOTO   0B5
 ....................          if(angulo >= 7){ 
-00AC:  MOVF   27,W
-00AD:  SUBLW  06
-00AE:  BTFSC  03.0
-00AF:  GOTO   0B2
+00AD:  MOVF   27,W
+00AE:  SUBLW  06
+00AF:  BTFSC  03.0
+00B0:  GOTO   0B3
 ....................             angulo = 0; 
-00B0:  CLRF   27
+00B1:  CLRF   27
 ....................          }else { 
-00B1:  GOTO   0B4
+00B2:  GOTO   0B5
 ....................             angulo = angulo + incremento; 
-00B2:  MOVF   2A,W
-00B3:  ADDWF  27,F
+00B3:  MOVF   2A,W
+00B4:  ADDWF  27,F
 ....................          } 
 ....................       } 
-00B4:  BCF    0A.3
-00B5:  BCF    0A.4
-00B6:  GOTO   0CB (RETURN)
+00B5:  BCF    0A.3
+00B6:  BCF    0A.4
+00B7:  GOTO   0CC (RETURN)
 .................... } 
 ....................  
 .................... void Cargar_configuracion(){ 
 ....................    SET_TRIS_B(0xFF);    //configura PORTB entrada / 0=salida / 1=entrada 
 *
-0087:  MOVLW  FF
-0088:  BSF    03.5
-0089:  MOVWF  06
+0088:  MOVLW  FF
+0089:  BSF    03.5
+008A:  MOVWF  06
 ....................    SET_TRIS_D(0x00);    //configura PORTD salida 
-008A:  MOVLW  00
-008B:  MOVWF  08
+008B:  MOVLW  00
+008C:  MOVWF  08
 ....................    OUTPUT_D(0x00);   //inicializando PORTD en 0x00 
-008C:  BCF    03.5
-008D:  CLRF   08
+008D:  BCF    03.5
+008E:  CLRF   08
 ....................    angulo = 2;       // inicializando el angulo de dispario en 2ms 
-008E:  MOVLW  02
-008F:  MOVWF  27
-0090:  BCF    0A.3
-0091:  BCF    0A.4
-0092:  GOTO   0C7 (RETURN)
+008F:  MOVLW  02
+0090:  MOVWF  27
+0091:  BCF    0A.3
+0092:  BCF    0A.4
+0093:  GOTO   0C8 (RETURN)
 .................... } 
 ....................  
 .................... void Configurar_interrupciones(){ 
 ....................    enable_interrupts(INT_EXT);   // habilitar interrupcion del RB0 /INTE 
-0093:  BSF    0B.4
+0094:  BSF    0B.4
 ....................    ext_int_edge(L_TO_H);         // Flag INTF si flanco de bajada / H_TO_L bajada 
-0094:  BSF    03.5
-0095:  BSF    01.6
+0095:  BSF    03.5
+0096:  BSF    01.6
 ....................    enable_interrupts(INT_RB); 
-0096:  BCF    03.5
-0097:  BSF    0B.3
+0097:  BCF    03.5
+0098:  BSF    0B.3
 ....................    enable_interrupts(GLOBAL); 
-0098:  MOVLW  C0
-0099:  IORWF  0B,F
-009A:  BCF    0A.3
-009B:  BCF    0A.4
-009C:  GOTO   0C8 (RETURN)
+0099:  MOVLW  C0
+009A:  IORWF  0B,F
+009B:  BCF    0A.3
+009C:  BCF    0A.4
+009D:  GOTO   0C9 (RETURN)
 .................... } 
 ....................  
 .................... void Disparar(int ang){ 
 ....................    switch (ang){ 
 *
-0043:  MOVF   2C,W
-0044:  ADDLW  F8
-0045:  BTFSC  03.0
-0046:  GOTO   06D
-0047:  ADDLW  08
-0048:  GOTO   074
+0044:  MOVF   2C,W
+0045:  ADDLW  F8
+0046:  BTFSC  03.0
+0047:  GOTO   06E
+0048:  ADDLW  08
+0049:  GOTO   075
 ....................       case 0 :  
-....................                bit_set(PORTD,0); 
-0049:  BSF    08.0
+....................                output_high(PIN_D0); 
+004A:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
-004A:  GOTO   06D
+004B:  GOTO   06E
 ....................       case 1 : delay_ms(1); 
-004B:  MOVLW  01
-004C:  MOVWF  2D
-004D:  CALL   02F
-....................                bit_set(PORTD,0); 
-004E:  BSF    08.0
+004C:  MOVLW  01
+004D:  MOVWF  2D
+004E:  CALL   02F
+....................                output_high(PIN_D0); 
+004F:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
-004F:  GOTO   06D
+0050:  GOTO   06E
 ....................       case 2 : delay_ms(2); 
-0050:  MOVLW  02
-0051:  MOVWF  2D
-0052:  CALL   02F
-....................                bit_set(PORTD,0); 
-0053:  BSF    08.0
+0051:  MOVLW  02
+0052:  MOVWF  2D
+0053:  CALL   02F
+....................                output_high(PIN_D0); 
+0054:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
-0054:  GOTO   06D
+0055:  GOTO   06E
 ....................       case 3 : delay_ms(3); 
-0055:  MOVLW  03
-0056:  MOVWF  2D
-0057:  CALL   02F
-....................                bit_set(PORTD,0); 
-0058:  BSF    08.0
+0056:  MOVLW  03
+0057:  MOVWF  2D
+0058:  CALL   02F
+....................                output_high(PIN_D0); 
+0059:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
-0059:  GOTO   06D
+005A:  GOTO   06E
 ....................       case 4 : delay_ms(4); 
-005A:  MOVLW  04
-005B:  MOVWF  2D
-005C:  CALL   02F
-....................                bit_set(PORTD,0); 
-005D:  BSF    08.0
+005B:  MOVLW  04
+005C:  MOVWF  2D
+005D:  CALL   02F
+....................                output_high(PIN_D0); 
+005E:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
-005E:  GOTO   06D
+005F:  GOTO   06E
 ....................       case 5 : delay_ms(5); 
-005F:  MOVLW  05
-0060:  MOVWF  2D
-0061:  CALL   02F
-....................                bit_set(PORTD,0); 
-0062:  BSF    08.0
+0060:  MOVLW  05
+0061:  MOVWF  2D
+0062:  CALL   02F
+....................                output_high(PIN_D0); 
+0063:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
-0063:  GOTO   06D
+0064:  GOTO   06E
 ....................       case 6 : delay_ms(6); 
-0064:  MOVLW  06
-0065:  MOVWF  2D
-0066:  CALL   02F
-....................                bit_set(PORTD,0); 
-0067:  BSF    08.0
+0065:  MOVLW  06
+0066:  MOVWF  2D
+0067:  CALL   02F
+....................                output_high(PIN_D0); 
+0068:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
-0068:  GOTO   06D
+0069:  GOTO   06E
 ....................       case 7 : delay_ms(7); 
-0069:  MOVLW  07
-006A:  MOVWF  2D
-006B:  CALL   02F
-....................                bit_set(PORTD,0); 
-006C:  BSF    08.0
+006A:  MOVLW  07
+006B:  MOVWF  2D
+006C:  CALL   02F
+....................                output_high(PIN_D0); 
+006D:  BSF    08.0
+....................                //bit_set(PORTD,0); 
 ....................          break; 
 ....................    } 
 ....................       delay_ms(1); 
-006D:  MOVLW  01
-006E:  MOVWF  2D
-006F:  CALL   02F
-....................       bit_clear(PORTD,0); 
-0070:  BCF    08.0
-0071:  BCF    0A.3
-0072:  BCF    0A.4
-0073:  GOTO   083 (RETURN)
+006E:  MOVLW  01
+006F:  MOVWF  2D
+0070:  CALL   02F
+....................       output_low(PIN_D0); 
+0071:  BCF    08.0
+0072:  BCF    0A.3
+0073:  BCF    0A.4
+0074:  GOTO   084 (RETURN)
+....................       //bit_clear(PORTD,0); 
 .................... } 
 .................... //***************************************** 
 

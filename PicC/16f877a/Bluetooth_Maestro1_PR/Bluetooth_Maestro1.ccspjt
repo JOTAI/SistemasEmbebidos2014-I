@@ -1,0 +1,22 @@
+[PROJECT]
+Target=Bluetooth_Maestro1.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.008
+Compiler=PCM
+CCSVersion=5.008
+[Target Data]
+FileList=Bluetooth_Maestro1.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Bluetooth_Maestro1_PR\Bluetooth_Maestro1]
+Type=4
+[mru-list]
+1=Bluetooth_Maestro1.c
+[Opened Files]
+1=Bluetooth_Maestro1.c
+2=
+[Bluetooth_Maestro1.c]
+Type=4
+[Units]
+Count=1
+1=Bluetooth_Maestro1 (main)

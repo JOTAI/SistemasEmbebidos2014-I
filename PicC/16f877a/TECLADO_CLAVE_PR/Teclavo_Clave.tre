@@ -1,3 +1,54 @@
 ÀÄTeclavo_Clave
-   ÀÄMAIN  0/13  Ram=0
-      ÀÄ@cinit1  (Inline)  Ram=0
+   ÃÄMAIN  0/40  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄConfigurar_interrupciones  0/23  Ram=0
+   ³  ÃÄCargar_configuracion  0/72  Ram=1
+   ³  ³  ÃÄlcd_init  (Inline)  Ram=2
+   ³  ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ³  ÃÄlcd_send_nibble  0/14  Ram=1
+   ³  ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ³  ÃÄlcd_send_nibble  0/14  Ram=1
+   ³  ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ³  ÃÄ@const729  0/8  Ram=0
+   ³  ³  ³  ÀÄlcd_send_byte  0/64  Ram=3
+   ³  ³  ³     ÃÄlcd_read_byte  (Inline)  Ram=3
+   ³  ³  ³     ³  ÃÄlcd_read_nibble  0/6  Ram=0
+   ³  ³  ³     ³  ÀÄlcd_read_nibble  0/6  Ram=0
+   ³  ³  ³     ÃÄlcd_send_nibble  0/14  Ram=1
+   ³  ³  ³     ÀÄlcd_send_nibble  0/14  Ram=1
+   ³  ³  ÃÄ@PSTRINGC7_747  0/75  Ram=4
+   ³  ³  ³  ÃÄlcd_putc  0/44  Ram=1
+   ³  ³  ³  ³  ÃÄlcd_gotoxy  0/18  Ram=4
+   ³  ³  ³  ³  ³  ÀÄlcd_send_byte  0/64  Ram=3
+   ³  ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ³  ÃÄlcd_send_byte  0/64  Ram=3
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ³  ³  ÃÄlcd_gotoxy  0/18  Ram=4
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÃÄlcd_send_byte  0/64  Ram=3
+   ³  ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ³  ÀÄlcd_send_byte  0/64  Ram=3
+   ³  ³  ³  ³     ÀÄ*
+   ³  ³  ³  ÀÄlcd_putc  0/44  Ram=1
+   ³  ³  ³     ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³  ³  ÀÄ@PSTRINGC7_747  0/75  Ram=4
+   ³  ³     ÀÄ*
+   ³  ÀÄIngreso_Clave  0/126  Ram=1
+   ³     ÃÄkbd_getc  (Inline)  Ram=7
+   ³     ³  ÃÄ@delay_ms1  0/21  Ram=1
+   ³     ³  ÀÄ@const759  0/20  Ram=0
+   ³     ÃÄlcd_putc  0/44  Ram=1
+   ³     ³  ÀÄ*
+   ³     ÃÄ@PSTRINGC7_747  0/75  Ram=4
+   ³     ³  ÀÄ*
+   ³     ÃÄ@delay_ms1  0/21  Ram=1
+   ³     ÀÄlcd_putc  0/44  Ram=1
+   ³        ÀÄ*
+   ÀÄRDA_isr  0/109  Ram=2
+      ÃÄ@const783  0/6  Ram=0
+      ÃÄ@const784  0/6  Ram=0
+      ÃÄ@GETCH_1_  (Inline)  Ram=1
+      ÃÄstrcmp  0/68  Ram=5
+      ÀÄstrcmp  0/68  Ram=5

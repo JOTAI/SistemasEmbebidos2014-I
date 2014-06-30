@@ -1,0 +1,54 @@
+
+ROM used:   166/8192 (2%)
+            166/8192 (2%) including unused fragments
+
+            0.2 Average locations per line
+            4.7 Average locations per statement
+
+RAM used:   14/368 (4%) at main() level
+            16/368 (4%) worst case
+
+Stack used: 2 worst case (1 in main + 1 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   87    35 100  Alarma_Bluetooth.c
+  661     0   0  C:\Program Files (x86)\PICC\Devices\16f877a.h
+----- -----
+  748    35 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     23  14    1             @delay_ms1
+0      6   4    1    42  1.7  ext_isr
+0     15   9    1   197  3.1  rb_isr
+0     12   7    0   102  2.9  TIMER0_isr
+0     21  13    0    55  1.4  MAIN
+0     11   7    0    69  1.6  Cargar_configuracion
+0     17  10    0   119  1.7  Configurar_interrupciones
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               6
+    Statements              35
+    Comments                135
+    Volume (V)              934
+    Difficulty (D)          12.4
+    Effort to implement (E) 11624
+    Time to implement (T)   11 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   4
+    Maintainability (MI)    160
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-0003C    57  0  
+0003D-007FF   105  1882  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

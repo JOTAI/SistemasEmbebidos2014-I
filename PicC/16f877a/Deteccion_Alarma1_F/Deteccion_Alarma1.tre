@@ -1,0 +1,7 @@
+ÀÄDeteccion_Alarma1
+   ÃÄMAIN  0/18  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄCargar_configuracion  0/11  Ram=0
+   ³  ÀÄConfigurar_interrupciones  0/16  Ram=0
+   ÃÄext_isr  0/12  Ram=1
+   ÀÄTIMER0_isr  0/12  Ram=0

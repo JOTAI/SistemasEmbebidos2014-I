@@ -1,9 +1,0 @@
-ÀÄFocoAplausoControl
-   ÃÄMAIN  0/10  Ram=0
-   ³  ÃÄ@cinit1  (Inline)  Ram=0
-   ³  ÃÄCargar_configuracion  0/9  Ram=0
-   ³  ÀÄConfigurar_interrupciones  0/8  Ram=0
-   ÃÄEXT_isr  0/4  Ram=0
-   ³  ÀÄinvertir_PORTA  0/6  Ram=1
-   ÀÄRB_isr  0/13  Ram=1
-      ÀÄinvertir_PORTA  0/6  Ram=1

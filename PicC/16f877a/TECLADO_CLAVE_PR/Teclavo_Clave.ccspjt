@@ -7,7 +7,7 @@ CCSVersion=5.008
 [Target Data]
 FileList=Teclavo_Clave.c
 [Directories]
-Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\TECLADO_CLAVE_PR\
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\TECLADO_CLAVE_PR\;D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\TECLADO_CLAVE_PR\
 [D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\TECLADO_CLAVE_PR\Teclavo_Clave]
 Type=4
 [mru-list]

@@ -1,0 +1,19 @@
+#include <16f877a.h>
+#fuses HS,NOWDT,NOPROTECT,NOLVP 
+#use delay(clock=10000000)
+
+#use FAST_IO(A) 
+#use FAST_IO(B)
+#use FAST_IO(C)
+
+
+
+void main()
+{
+
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}

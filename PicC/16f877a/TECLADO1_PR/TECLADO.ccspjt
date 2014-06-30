@@ -7,7 +7,7 @@ CCSVersion=5.008
 [Target Data]
 FileList=TECLADO.c
 [Directories]
-Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\TECLADO1_PR\
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\TECLADO1_PR\;D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\TECLADO1_PR\
 [D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\TECLADO1_PR\TECLADO]
 Type=4
 [mru-list]

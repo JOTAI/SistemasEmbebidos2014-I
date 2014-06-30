@@ -1,0 +1,9 @@
+ÀÄBluetooth_Maestro1
+   ÃÄMAIN  0/34  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄCargar_configuracion  0/27  Ram=2
+   ³  ³  ÀÄ@const905  0/6  Ram=0
+   ³  ÃÄConfigurar_interrupciones  0/23  Ram=0
+   ³  ÀÄ@delay_ms1  0/23  Ram=1
+   ÀÄRDA_isr  0/27  Ram=0
+      ÀÄ@GETCH_BIU_1  (Inline)  Ram=0

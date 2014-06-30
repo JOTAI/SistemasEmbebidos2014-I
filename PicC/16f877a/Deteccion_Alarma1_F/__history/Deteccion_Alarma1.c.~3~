@@ -1,0 +1,53 @@
+#include <16f877a.h>
+#fuses HS,NOWDT,NOPROTECT,NOLVP 
+#use delay(clock=10000000)
+
+#use FAST_IO(A)
+#use FAST_IO(B)
+#use FAST_IO(D)
+
+// **************************************
+// Declaracion de Funciones
+void Cargar_configuracion();
+void Configurar_interrupciones();
+void VariacionAnguloAplauso (int incremento);
+void Disparar(int ang);
+// **************************************
+
+// **************************************
+// Declaracion de las Interrupciones
+#INT_EXT       //Sentencias de la interrupcion RB0
+void ext_isr(){
+   Disparar(angulo);
+   }
+// **************************************************
+
+// FUNCION PRINCIPAL
+void main()
+{  
+   Cargar_configuracion();
+   Configurar_interrupciones();
+      
+   while(true)
+   {  
+      
+   }
+}
+
+// ****************************************
+// Definicion de las Funciones
+
+void Cargar_configuracion(){
+   SET_TRIS_B(0xFF);    //configura PORTB entrada / 0=salida / 1=entrada
+   SET_TRIS_D(0x00);    //configura PORTD salida
+   OUTPUT_D(0x00);   //inicializando PORTD en 0x00
+   angulo = 2;       // inicializando el angulo de dispario en 2ms
+}
+
+void Configurar_interrupciones(){
+   enable_interrupts(INT_EXT);   // habilitar interrupcion del RB0 /INTE
+   ext_int_edge(L_TO_H);         // Flag INTF si flanco de bajada / H_TO_L bajada
+   enable_interrupts(INT_RB);
+   enable_interrupts(GLOBAL);
+}
+//**********************************************************************

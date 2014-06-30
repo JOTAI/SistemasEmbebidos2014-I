@@ -1,3 +1,28 @@
 ÀÄTECLADO
-   ÀÄMAIN  0/13  Ram=0
-      ÀÄ@cinit1  (Inline)  Ram=0
+   ÀÄMAIN  0/27  Ram=0
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄlcd_init  0/44  Ram=2
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄlcd_send_nibble  0/17  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄlcd_send_nibble  0/17  Ram=1
+      ³  ÃÄ@const627  0/8  Ram=0
+      ³  ÀÄlcd_send_byte  0/60  Ram=3
+      ³     ÃÄlcd_read_byte  (Inline)  Ram=3
+      ³     ÃÄlcd_send_nibble  0/17  Ram=1
+      ³     ÀÄlcd_send_nibble  0/17  Ram=1
+      ÃÄkbd_getc  0/81  Ram=7
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄ@const654  0/20  Ram=0
+      ÃÄlcd_putc  0/54  Ram=1
+      ³  ÃÄlcd_send_byte  0/60  Ram=3
+      ³  ³  ÀÄ*
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÃÄlcd_gotoxy  (Inline)  Ram=4
+      ³  ³  ÀÄlcd_send_byte  0/60  Ram=3
+      ³  ³     ÀÄ*
+      ³  ÃÄlcd_send_byte  0/60  Ram=3
+      ³  ³  ÀÄ*
+      ³  ÀÄlcd_send_byte  0/60  Ram=3
+      ³     ÀÄ*
+      ÀÄ@delay_ms1  0/20  Ram=1

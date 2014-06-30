@@ -10,6 +10,29 @@
 01B     CCP_2
 01B     CCP_2_LOW
 01C     CCP_2_HIGH
+020     tecla
+021     kbd_getc.tecla
+021     lcd_init.i
+021     lcd_putc.c
+022     kbd_getc.f
+022     lcd_gotoxy.x
+022     lcd_init.@SCRATCH1
+023     kbd_getc.c
+023     lcd_gotoxy.y
+024     lcd_gotoxy.address
+024     kbd_getc.t
+025     kbd_getc.i
+025     lcd_gotoxy.@SCRATCH1
+026     kbd_getc.j
+026     lcd_send_byte.address
+027     @delay_ms1.P1
+027     lcd_send_byte.n
+027     kbd_getc.@SCRATCH1
+028     lcd_read_byte.low
+028     lcd_send_byte.@SCRATCH1
+029     lcd_send_nibble.n
+029     lcd_read_byte.high
+02A     lcd_read_byte.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -17,24 +40,36 @@
 07A     @SCRATCH
 09C.6   C1OUT
 09C.7   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  @cinit1
-000004  MAIN
-00000E  @cinit2
+000004  LCD_INIT_STRING.call
+000008  LCD_INIT_STRING.data
+00000C  KEYS.call
+000010  KEYS.data
+000020  @delay_ms1
+000034  lcd_send_nibble
+000045  lcd_send_byte
+000046  lcd_read_byte
+000081  lcd_init
+0000AD  kbd_getc
+0000FE  lcd_putc
+000115  lcd_gotoxy
+000134  @cinit1
+000134  MAIN
+00013E  @cinit2
 
 Project Directory:
-    D:\IGNACIO\Programacion\Microcontroladores\PicC\16f877a\TECLADO1_PR\
+    D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\TECLADO1_PR\
 
 Project Files:
-    TECLADO.c                                               [21-jun-14 20:49  CRC=D8102B21]
-    C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 21:28  CRC=4E65664C]
+    TECLADO.c                                               [28-jun-14 19:33  CRC=28811FFC]
+    C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 14:28  CRC=4E65664C]
     LCD.C                                                   [05-sep-07 09:54  CRC=EE70690B]
-    kbd2.c                                                  [31-oct-13 03:01  CRC=FA6214CB]
+    kbd2.c                                                  [21-jun-14 22:35  CRC=90B25DA1]
 
-Source signature=09AA240E
+Source signature=86BBAA95
 
 Units:
     TECLADO (main)

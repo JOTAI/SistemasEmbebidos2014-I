@@ -1,0 +1,276 @@
+CCS PCM C Compiler, Version 5.008, 5967               29-jun-14 03:07
+
+               Filename:   D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Alarma_Bluetooth\Alarma_Bluetooth.lst
+
+               ROM used:   166 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   14 (4%) at main() level
+                           16 (4%) worst case
+               Stack used: 2 locations (1 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   091
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  BTFSS  0B.3
+0018:  GOTO   01B
+0019:  BTFSC  0B.0
+001A:  GOTO   034
+001B:  BTFSS  0B.4
+001C:  GOTO   01F
+001D:  BTFSC  0B.1
+001E:  GOTO   037
+001F:  BTFSS  0B.5
+0020:  GOTO   023
+0021:  BTFSC  0B.2
+0022:  GOTO   03A
+0023:  MOVF   22,W
+0024:  MOVWF  04
+0025:  MOVF   23,W
+0026:  MOVWF  77
+0027:  MOVF   24,W
+0028:  MOVWF  78
+0029:  MOVF   25,W
+002A:  MOVWF  79
+002B:  MOVF   26,W
+002C:  MOVWF  7A
+002D:  MOVF   20,W
+002E:  MOVWF  0A
+002F:  SWAPF  21,W
+0030:  MOVWF  03
+0031:  SWAPF  7F,F
+0032:  SWAPF  7F,W
+0033:  RETFIE
+0034:  BCF    0A.3
+0035:  BCF    0A.4
+0036:  GOTO   043
+0037:  BCF    0A.3
+0038:  BCF    0A.4
+0039:  GOTO   03D
+003A:  BCF    0A.3
+003B:  BCF    0A.4
+003C:  GOTO   052
+.................... #include <16f877a.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+....................  
+.................... #FUSES HS,NOWDT,NOPROTECT,NOLVP  
+.................... #USE delay(clock=10000000) 
+*
+007A:  MOVLW  29
+007B:  MOVWF  04
+007C:  BCF    03.7
+007D:  MOVF   00,W
+007E:  BTFSC  03.2
+007F:  GOTO   08E
+0080:  MOVLW  03
+0081:  MOVWF  78
+0082:  CLRF   77
+0083:  DECFSZ 77,F
+0084:  GOTO   083
+0085:  DECFSZ 78,F
+0086:  GOTO   082
+0087:  MOVLW  3C
+0088:  MOVWF  77
+0089:  DECFSZ 77,F
+008A:  GOTO   089
+008B:  GOTO   08C
+008C:  DECFSZ 00,F
+008D:  GOTO   080
+008E:  BCF    0A.3
+008F:  BCF    0A.4
+0090:  GOTO   0A4 (RETURN)
+....................  
+.................... #USE FAST_IO(B)   //Puerto B 
+.................... #USE FAST_IO(D)   //Puerto D 
+....................  
+.................... // ************************************** 
+.................... // Declaracion de variables 
+.................... int1 estado_alarma = 0; 
+.................... unsigned int cont_tiempo = 0; 
+.................... //*************************************** 
+....................  
+.................... // ************************************** 
+.................... // Declaracion de Funciones 
+.................... void Cargar_configuracion(); 
+.................... void Configurar_interrupciones(); 
+....................  
+.................... // ************************************** 
+....................  
+.................... // ************************************** 
+.................... // Declaracion de las Interrupciones 
+.................... #INT_EXT       //Sentencias de la interrupcion RB0 
+.................... void ext_isr(){ 
+....................       if(estado_alarma == 1){ 
+*
+003D:  BTFSC  27.0
+....................          enable_interrupts(INT_TIMER0);       //Habilita interrupción timer0 
+003E:  BSF    0B.5
+....................       } 
+....................    } 
+003F:  BCF    0B.1
+0040:  BCF    0A.3
+0041:  BCF    0A.4
+0042:  GOTO   023
+.................... #INT_RB 
+.................... void rb_isr(){ 
+....................    if (input(PIN_B4) == 1){ 
+0043:  BTFSS  06.4
+0044:  GOTO   04E
+....................       if(estado_alarma == 0){ 
+0045:  BTFSC  27.0
+0046:  GOTO   04A
+....................       estado_alarma = 1; 
+0047:  BSF    27.0
+....................       output_high(PIN_D1); 
+0048:  BSF    08.1
+....................       } 
+0049:  GOTO   04E
+....................       else { 
+....................       estado_alarma = 0; 
+004A:  BCF    27.0
+....................       disable_interrupts(INT_TIMER0);       //Desabilita interrupción timer0 
+004B:  BCF    0B.5
+....................       output_low(PIN_D0); 
+004C:  BCF    08.0
+....................       output_low(PIN_D1); 
+004D:  BCF    08.1
+....................       } 
+....................    } 
+....................     
+.................... } 
+....................  
+004E:  BCF    0B.0
+004F:  BCF    0A.3
+0050:  BCF    0A.4
+0051:  GOTO   023
+.................... #int_TIMER0 
+.................... void TIMER0_isr(void) { 
+....................    set_timer0 (0x1B); 
+0052:  MOVLW  1B
+0053:  MOVWF  01
+....................    cont_tiempo++; 
+0054:  INCF   28,F
+....................    if (cont_tiempo == 255){ 
+0055:  INCFSZ 28,W
+0056:  GOTO   05A
+....................    output_toggle(PIN_D0); 
+0057:  MOVLW  01
+0058:  XORWF  08,F
+....................    cont_tiempo = 0; 
+0059:  CLRF   28
+....................    } 
+005A:  BCF    0B.2
+005B:  BCF    0A.3
+005C:  BCF    0A.4
+005D:  GOTO   023
+.................... }               //Se recarga el timer0 
+.................... // ************************************************** 
+.................... void main() { 
+*
+0091:  MOVF   03,W
+0092:  ANDLW  1F
+0093:  MOVWF  03
+0094:  BCF    27.0
+0095:  CLRF   28
+0096:  BSF    03.5
+0097:  BSF    1F.0
+0098:  BSF    1F.1
+0099:  BSF    1F.2
+009A:  BCF    1F.3
+009B:  MOVLW  07
+009C:  MOVWF  1C
+009D:  BCF    03.7
+....................    Cargar_configuracion(); 
+009E:  BCF    03.5
+009F:  GOTO   05E
+....................    Configurar_interrupciones(); 
+00A0:  GOTO   069
+....................    while(true){     //Ciclo infinito en espera de interrupciones  
+....................  
+....................                Delay_ms(10); 
+00A1:  MOVLW  0A
+00A2:  MOVWF  29
+00A3:  GOTO   07A
+00A4:  GOTO   0A1
+....................               }                                 
+....................    }//FIN D 
+....................  
+00A5:  SLEEP
+.................... // **************************************** 
+.................... // Definicion de las Funciones 
+....................  
+.................... void Cargar_configuracion(){ 
+....................    SET_TRIS_B(0xFF);    //configura PORTB entrada / 0=salida / 1=entrada 
+*
+005E:  MOVLW  FF
+005F:  BSF    03.5
+0060:  MOVWF  06
+....................    SET_TRIS_D(0x00);    //configura PORTD salida 
+0061:  MOVLW  00
+0062:  MOVWF  08
+....................    OUTPUT_D(0x00);   //inicializando PORTD en 0x00 
+0063:  BCF    03.5
+0064:  CLRF   08
+....................    estado_alarma = 0; 
+0065:  BCF    27.0
+0066:  BCF    0A.3
+0067:  BCF    0A.4
+0068:  GOTO   0A0 (RETURN)
+.................... } 
+....................  
+.................... void Configurar_interrupciones(){ 
+....................    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);   //Configuración timer0 
+0069:  BSF    03.5
+006A:  MOVF   01,W
+006B:  ANDLW  C0
+006C:  MOVWF  01
+....................    set_timer0 (0x1B);                 //Carga del timer0 
+006D:  MOVLW  1B
+006E:  BCF    03.5
+006F:  MOVWF  01
+....................    ext_int_edge(L_TO_H);         // Flag INTF si flanco de bajada / H_TO_L bajada 
+0070:  BSF    03.5
+0071:  BSF    01.6
+....................    enable_interrupts(INT_EXT);   // habilitar interrupcion del RB0 /INTE 
+0072:  BCF    03.5
+0073:  BSF    0B.4
+....................    enable_interrupts(INT_RB);   // habilitar interrupcion del RB 
+0074:  BSF    0B.3
+....................    enable_interrupts(GLOBAL); 
+0075:  MOVLW  C0
+0076:  IORWF  0B,F
+0077:  BCF    0A.3
+0078:  BCF    0A.4
+0079:  GOTO   0A1 (RETURN)
+.................... } 
+.................... //********************************************************************** 
+....................  
+....................  
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

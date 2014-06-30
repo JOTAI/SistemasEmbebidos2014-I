@@ -1,0 +1,22 @@
+[PROJECT]
+Target=Alarma_Bluetooth.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.008
+Compiler=PCM
+CCSVersion=5.008
+[Target Data]
+FileList=Alarma_Bluetooth.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Alarma_Bluetooth\Alarma_Bluetooth]
+Type=4
+[mru-list]
+1=Alarma_Bluetooth.c
+[Opened Files]
+1=Alarma_Bluetooth.c
+2=
+[Alarma_Bluetooth.c]
+Type=4
+[Units]
+Count=1
+1=Alarma_Bluetooth (main)
