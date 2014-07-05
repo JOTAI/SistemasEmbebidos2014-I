@@ -1,3 +1,4 @@
-      Memory usage:   ROM=2%      RAM=7% - 8%
-      0 Errors,  0 Warnings.
+>>> Warning 202 "Bluetooth_Maestro1.c" Line 38(6,14): Variable never used:   ClaveNum
+      Memory usage:   ROM=9%      RAM=17% - 18%
+      0 Errors,  1 Warnings.
 Build Successful.

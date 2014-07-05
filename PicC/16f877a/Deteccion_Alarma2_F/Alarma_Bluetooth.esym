@@ -1,7 +1,7 @@
 D G "__PCM__" 0 88 ""5.008""
 D G "__DEVICE__" 0 88 "877"
-D G "__DATE__" 0 88 ""29-jun-14""
-D G "__TIME__" 0 88 ""03:07:54"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__DATE__" 0 88 ""03-jul-14""
+D G "__TIME__" 0 88 ""03:02:04"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 5 13 "FUNCTION"
 v L "value" 1 28 "int8" `54 
 f B "set_tris_a" 1 28 "void(int8 value)" `53 
@@ -776,7 +776,7 @@ d G "INT_TIMER0" 1 657 "0x000B20"
 d G "INT_COMP" 1 658 "0x008D40"
 C L "jump_to_irs" 0 10 1 "FUNCTION"
 V G "estado_alarma" 0 11 "int1" `619 
-V G "cont_tiempo" 0 12 "int8" `620 
+V G "cont_tiempo" 0 12 "int16" `620 
 C L "jump_to_irs" 0 10 1 "FUNCTION"
 F G "Cargar_configuracion" 0 17 "void()" `621 
 F G "Configurar_interrupciones" 0 18 "void()" `622  "Declaracion de las Interrupciones"

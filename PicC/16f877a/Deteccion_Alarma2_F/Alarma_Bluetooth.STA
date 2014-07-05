@@ -1,12 +1,12 @@
 
-ROM used:   166/8192 (2%)
-            166/8192 (2%) including unused fragments
+ROM used:   174/8192 (2%)
+            174/8192 (2%) including unused fragments
 
             0.2 Average locations per line
-            4.7 Average locations per statement
+            5.0 Average locations per statement
 
-RAM used:   14/368 (4%) at main() level
-            16/368 (4%) worst case
+RAM used:   15/368 (4%) at main() level
+            17/368 (5%) worst case
 
 Stack used: 2 worst case (1 in main + 1 for interrupts)
 Stack size: 8
@@ -20,13 +20,13 @@ Lines Stmts  %   Files
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
-0     23  14    1             @delay_ms1
-0      6   4    1    42  1.7  ext_isr
+0     23  13    1             @delay_ms1
+0      6   3    1    42  1.7  ext_isr
 0     15   9    1   197  3.1  rb_isr
-0     12   7    0   102  2.9  TIMER0_isr
-0     21  13    0    55  1.4  MAIN
-0     11   7    0    69  1.6  Cargar_configuracion
-0     17  10    0   119  1.7  Configurar_interrupciones
+0     20  11    0   102  2.9  TIMER0_isr
+0     22  13    0    55  1.4  MAIN
+0     11   6    0    69  1.6  Cargar_configuracion
+0     16   9    0   119  1.7  Configurar_interrupciones
  Inline         0             @cinit1
 
 Program metrics:
@@ -45,7 +45,7 @@ Program metrics:
 -----------  ----  ----
 00000-00003     4  0  
 00004-0003C    57  0  
-0003D-007FF   105  1882  
+0003D-007FF   113  1874  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

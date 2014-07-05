@@ -42,7 +42,7 @@ void main (){
       delay_us(20);
       Radc=read_adc();
       delay_us(20);
-      Radc = Radc*255.0/1024;
+      Radc = Radc*5.0/1024;
       Vadc = Radc;
       q = Vadc+48;
       USART_SendC(q);

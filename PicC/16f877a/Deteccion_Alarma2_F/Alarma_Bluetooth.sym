@@ -15,10 +15,10 @@
 025     @INTERRUPT_AREA
 026     @INTERRUPT_AREA
 027.0   estado_alarma
-028     cont_tiempo
-029     @delay_ms1.P1
-02A     ext_isr.@SCRATCH1
-02A     rb_isr.@SCRATCH1
+028-029 cont_tiempo
+02A     @delay_ms1.P1
+02B     ext_isr.@SCRATCH1
+02B     rb_isr.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -65,21 +65,21 @@ ROM Allocation:
 00003D  ext_isr
 000043  rb_isr
 000052  TIMER0_isr
-00005E  Cargar_configuracion
-000069  Configurar_interrupciones
-00007A  @delay_ms1
-000091  MAIN
-000091  @cinit1
-00009D  @cinit2
+000066  Cargar_configuracion
+000071  Configurar_interrupciones
+000081  @delay_ms1
+000098  MAIN
+000098  @cinit1
+0000A5  @cinit2
 
 Project Directory:
-    D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Alarma_Bluetooth\
+    D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Deteccion_Alarma2_F\
 
 Project Files:
-    Alarma_Bluetooth.c                                      [29-jun-14 03:07  CRC=CB5167EB]
+    Alarma_Bluetooth.c                                      [03-jul-14 02:58  CRC=1E57DC20]
     C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 14:28  CRC=4E65664C]
 
-Source signature=681C3483
+Source signature=BB22A8B8
 
 Units:
     Alarma_Bluetooth (main)

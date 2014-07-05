@@ -25,7 +25,7 @@ void main (){
       Radc = Radc*5.0/1024;
       Vadc = Radc;
       q = Vadc+48;
-      printf("\fV: %f", Radc);
+      printf("%f\r", Radc);
       delay_us(20);
       printf(lcd_putc,"\fV: %f", Radc);
       delay_ms(500);

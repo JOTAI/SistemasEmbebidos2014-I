@@ -1,8 +1,7 @@
-D G "labs" 6 249 "abs"
-D G "__PCM__" 0 80 ""5.008""
-D G "__DEVICE__" 0 80 "877"
-D G "__DATE__" 0 80 ""29-jun-14""
-D G "__TIME__" 0 80 ""12:24:32"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__PCM__" 0 179 ""5.008""
+D G "__DEVICE__" 0 179 "877"
+D G "__DATE__" 0 179 ""03-jul-14""
+D G "__TIME__" 0 179 ""06:32:01"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 1 5 13 "FUNCTION"
 v L "value" 1 28 "int8" `54 
 f B "set_tris_a" 1 28 "void(int8 value)" `53 
@@ -1184,21 +1183,39 @@ V L "val" 6 1324 "sint8" `892
 C L "bsearch" 6 397 1 "FUNCTION"
 V G "entrada" 0 25 "int8[5]" `896 
 V G "Boton1_UP" 0 27 "int8[2]" `897 
-V G "letra_in" 0 28 "int1" `898  "Declaracion de Funciones"
-F G "Cargar_configuracion" 0 32 "void()" `899 
-F G "Configurar_interrupciones" 0 33 "void()" `900  "Declaracion de las Interrupciones"
-F G "RDA_isr" 0 40 "void()" `901 
-C L "RDA_isr" 0 42 1 "FUNCTION"
-C L "MAIN" 0 42 2 "FUNCTION"
-F G "MAIN" 0 50 "void()" `902 
-C L "MAIN" 0 42 1 "FUNCTION"
-C L "Cargar_configuracion" 0 42 2 "FUNCTION"
-F G "Cargar_configuracion" 0 61 "void()" `899 
-C L "Cargar_configuracion" 0 42 1 "FUNCTION"
-C L "Cargar_configuracion" 0 42 1 "FUNCTION"
-F G "Configurar_interrupciones" 0 70 "void()" `900 
-C L "Configurar_interrupciones" 0 42 1 "FUNCTION"
-C L "Configurar_interrupciones" 0 42 1 "FUNCTION"
+V G "Boton2_UP" 0 28 "int8[2]" `898 
+V G "Boton3_UP" 0 29 "int8[2]" `899 
+V G "Boton4_UP" 0 30 "int8[2]" `900 
+V G "Boton5_UP" 0 31 "int8[2]" `901 
+V G "Boton1_DOWN" 0 32 "int8[2]" `902 
+V G "Boton2_DOWN" 0 33 "int8[2]" `903 
+V G "Boton3_DOWN" 0 34 "int8[2]" `904 
+V G "Boton4_DOWN" 0 35 "int8[2]" `905 
+V G "Boton5_DOWN" 0 36 "int8[2]" `906 
+V G "ClaveNum" 0 38 "int8[3][3]" `907 
+V G "Clave1" 0 39 "int8[2]" `909 
+V G "Clave2" 0 40 "int8[2]" `910 
+V G "Clave3" 0 41 "int8[2]" `911 
+V G "letra_in" 0 45 "int1" `912  "Declaracion de funciones"
+F G "Rutina" 0 50 "void()" `913 
+F G "SecClav" 0 51 "void()" `914  "Definicion de interrupciones"
+F G "RDA_isr" 0 57 "void()" `915 
+C L "RDA_isr" 0 44 1 "FUNCTION"
+C L "MAIN" 0 44 1 "FUNCTION"
+F G "MAIN" 0 66 "void()" `916 
+C L "MAIN" 0 44 1 "FUNCTION"
+C L "MAIN" 0 44 1 "FUNCTION"
+C L "MAIN" 0 44 1 "FUNCTION"
+C L "MAIN" 0 44 1 "FUNCTION"
+C L "MAIN" 0 44 1 "FUNCTION"
+C L "MAIN" 0 44 1 "FUNCTION"
+C L "Rutina" 0 44 1 "FUNCTION"
+F G "Rutina" 0 101 "void()" `913 
+C L "Rutina" 0 44 1 "FUNCTION"
+F G "SecClav" 0 149 "void()" `914 
+V L "estado" 0 150 "int1" `932 
+C L "SecClav" 0 44 1 "FUNCTION"
+C L "SecClav" 0 44 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

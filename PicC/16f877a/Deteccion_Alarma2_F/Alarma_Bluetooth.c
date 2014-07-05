@@ -9,7 +9,7 @@
 // **************************************
 // Declaracion de variables
 int1 estado_alarma = 0;
-unsigned int cont_tiempo = 0;
+unsigned int16 cont_tiempo = 0;
 //***************************************
 
 // **************************************
@@ -46,9 +46,9 @@ void rb_isr(){
 
 #int_TIMER0
 void TIMER0_isr(void) {
-   set_timer0 (0x1B);
+   set_timer0 (0x00);
    cont_tiempo++;
-   if (cont_tiempo == 255){
+   if (cont_tiempo == 2023){
    output_toggle(PIN_D0);
    cont_tiempo = 0;
    }
@@ -75,7 +75,7 @@ void Cargar_configuracion(){
 
 void Configurar_interrupciones(){
    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_2);   //Configuración timer0
-   set_timer0 (0x1B);                 //Carga del timer0
+   set_timer0 (0x00);                 //Carga del timer0
    ext_int_edge(L_TO_H);         // Flag INTF si flanco de bajada / H_TO_L bajada
    enable_interrupts(INT_EXT);   // habilitar interrupcion del RB0 /INTE
    enable_interrupts(INT_RB);   // habilitar interrupcion del RB

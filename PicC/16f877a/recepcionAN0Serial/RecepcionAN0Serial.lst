@@ -1,0 +1,575 @@
+CCS PCM C Compiler, Version 5.008, 5967               01-jul-14 09:44
+
+               Filename:   D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\recepcionAN0Serial\RecepcionAN0Serial.lst
+
+               ROM used:   424 words (5%)
+                           Largest free fragment is 2048
+               RAM used:   27 (7%) at main() level
+                           37 (10%) worst case
+               Stack used: 2 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  01
+0001:  MOVWF  0A
+0002:  GOTO   175
+0003:  NOP
+.................... #include <16f877A.h> 
+.................... //////// Standard Header file for the PIC16F877A device //////////////// 
+.................... #device PIC16F877A 
+*
+0019:  CLRF   3F
+001A:  MOVF   04,W
+001B:  MOVWF  3E
+001C:  BCF    3F.0
+001D:  BTFSC  03.7
+001E:  BSF    3F.0
+001F:  BTFSS  38.7
+0020:  GOTO   029
+0021:  BSF    3E.7
+0022:  BTFSS  3E.4
+0023:  INCF   3E,F
+0024:  COMF   37,F
+0025:  COMF   38,F
+0026:  INCF   37,F
+0027:  BTFSC  03.2
+0028:  INCF   38,F
+0029:  SWAPF  38,W
+002A:  IORLW  F0
+002B:  MOVWF  3A
+002C:  ADDWF  3A,F
+002D:  ADDLW  E2
+002E:  MOVWF  3B
+002F:  ADDLW  32
+0030:  MOVWF  3D
+0031:  MOVF   38,W
+0032:  ANDLW  0F
+0033:  ADDWF  3B,F
+0034:  ADDWF  3B,F
+0035:  ADDWF  3D,F
+0036:  ADDLW  E9
+0037:  MOVWF  3C
+0038:  ADDWF  3C,F
+0039:  ADDWF  3C,F
+003A:  SWAPF  37,W
+003B:  ANDLW  0F
+003C:  ADDWF  3C,F
+003D:  ADDWF  3D,F
+003E:  RLF    3C,F
+003F:  RLF    3D,F
+0040:  COMF   3D,F
+0041:  RLF    3D,F
+0042:  MOVF   37,W
+0043:  ANDLW  0F
+0044:  ADDWF  3D,F
+0045:  RLF    3A,F
+0046:  MOVLW  07
+0047:  MOVWF  39
+0048:  MOVLW  0A
+0049:  ADDWF  3D,F
+004A:  DECF   3C,F
+004B:  BTFSS  03.0
+004C:  GOTO   049
+004D:  ADDWF  3C,F
+004E:  DECF   3B,F
+004F:  BTFSS  03.0
+0050:  GOTO   04D
+0051:  ADDWF  3B,F
+0052:  DECF   3A,F
+0053:  BTFSS  03.0
+0054:  GOTO   051
+0055:  ADDWF  3A,F
+0056:  DECF   39,F
+0057:  BTFSS  03.0
+0058:  GOTO   055
+0059:  MOVLW  39
+005A:  MOVWF  04
+005B:  BCF    03.7
+005C:  MOVLW  07
+005D:  ANDWF  3E,W
+005E:  BCF    3E.6
+005F:  DECF   04,F
+0060:  ANDWF  3E,W
+0061:  BTFSS  03.2
+0062:  GOTO   06A
+0063:  BTFSC  3E.4
+0064:  INCF   04,F
+0065:  BTFSC  3E.4
+0066:  GOTO   06A
+0067:  MOVLW  20
+0068:  MOVWF  77
+0069:  GOTO   087
+006A:  ADDWF  04,F
+006B:  MOVLW  3D
+006C:  SUBWF  04,W
+006D:  BTFSC  03.2
+006E:  BSF    3E.6
+006F:  MOVF   00,W
+0070:  MOVWF  77
+0071:  BTFSS  03.2
+0072:  GOTO   07B
+0073:  BTFSC  3E.6
+0074:  GOTO   07B
+0075:  BTFSC  3E.4
+0076:  GOTO   08B
+0077:  BTFSC  3E.3
+0078:  GOTO   07B
+0079:  MOVLW  20
+007A:  GOTO   086
+007B:  BTFSS  3E.7
+007C:  GOTO   083
+007D:  MOVLW  2D
+007E:  MOVWF  77
+007F:  DECF   04,F
+0080:  BCF    3E.6
+0081:  BCF    3E.7
+0082:  GOTO   087
+0083:  BSF    3E.3
+0084:  BCF    3E.4
+0085:  MOVLW  30
+0086:  ADDWF  77,F
+0087:  MOVF   77,W
+0088:  BTFSS  0C.4
+0089:  GOTO   088
+008A:  MOVWF  19
+008B:  INCF   04,F
+008C:  BTFSS  3E.6
+008D:  GOTO   06B
+008E:  RETURN
+....................  
+.................... #list 
+....................  
+.................... #device adc=8//La resolución del módulo A/D es de 8 bits. 
+.................... #fuses XT,NOWDT,NOPROTECT,NOLVP,PUT,BROWNOUT 
+.................... #use delay(clock=4000000) 
+*
+0004:  MOVLW  37
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   018
+000A:  MOVLW  01
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  4A
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  GOTO   016
+0016:  DECFSZ 00,F
+0017:  GOTO   00A
+0018:  RETURN
+.................... #define antirebotes           50     // Tiempo para los delays antirebotes, en ms 
+.................... #define TIEMPO_ENTRE_LECTURAS 10     //ms entre una y otra lectura. 
+.................... #define lcd_data_port gentev("sfr:portd") // diciendole al pic que vamos a conectar el LCD por el Puerto D 
+.................... #define lcd_enable_pin pin_d0 // Conecto el enable del LCD con el pin D0 
+.................... #define lcd_rs_pin pin_d1 // Conecto el RS del LCD con el pin D1 
+.................... #define lcd_rw_pin pin_d2 // Conecto el RW del LCD con el pin D2 
+....................  
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+....................  
+.................... long sen1, sen2,sen3,sen4; 
+.................... long s1, s2, s3, s4; 
+.................... char md[4]; 
+....................  
+....................  
+.................... //Leo el valor del sensor1 -> AN0 ------------------------------------// 
+....................  int sensor1 (void){ 
+....................   
+....................   set_adc_channel(0); 
+*
+008F:  MOVLW  00
+0090:  MOVWF  78
+0091:  MOVF   1F,W
+0092:  ANDLW  C7
+0093:  IORWF  78,W
+0094:  MOVWF  1F
+....................   delay_ms(1); 
+0095:  MOVLW  01
+0096:  MOVWF  37
+0097:  CALL   004
+....................   sen1=read_adc();     //sen1  --> sensor1 
+0098:  BSF    1F.2
+0099:  BTFSC  1F.2
+009A:  GOTO   099
+009B:  CLRF   21
+009C:  MOVF   1E,W
+009D:  MOVWF  20
+....................   delay_ms(1); 
+009E:  MOVLW  01
+009F:  MOVWF  37
+00A0:  CALL   004
+....................   delay_ms(37); 
+00A1:  MOVLW  25
+00A2:  MOVWF  37
+00A3:  CALL   004
+....................   return sen1; 
+00A4:  MOVF   20,W
+00A5:  MOVWF  78
+....................  } 
+....................  
+.................... //Leo el valor del sensor2  -> AN1 ------------------------------------// 
+....................  int sensor2 (void){ 
+....................   set_adc_channel(0); 
+*
+00C7:  MOVLW  00
+00C8:  MOVWF  78
+00C9:  MOVF   1F,W
+00CA:  ANDLW  C7
+00CB:  IORWF  78,W
+00CC:  MOVWF  1F
+....................   delay_ms(1); 
+00CD:  MOVLW  01
+00CE:  MOVWF  37
+00CF:  CALL   004
+....................   sen2=read_adc();   //sen2  ---> sensor2 
+00D0:  BSF    1F.2
+00D1:  BTFSC  1F.2
+00D2:  GOTO   0D1
+00D3:  CLRF   23
+00D4:  MOVF   1E,W
+00D5:  MOVWF  22
+....................   delay_ms(1); 
+00D6:  MOVLW  01
+00D7:  MOVWF  37
+00D8:  CALL   004
+....................   delay_ms(37); 
+00D9:  MOVLW  25
+00DA:  MOVWF  37
+00DB:  CALL   004
+....................   return sen2; 
+00DC:  MOVF   22,W
+00DD:  MOVWF  78
+....................  } 
+....................  
+.................... //Leo el valor del sensor3 -> AN2 ------------------------------------// 
+....................  int sensor3 (void){ 
+....................   set_adc_channel(0); 
+*
+00FF:  MOVLW  00
+0100:  MOVWF  78
+0101:  MOVF   1F,W
+0102:  ANDLW  C7
+0103:  IORWF  78,W
+0104:  MOVWF  1F
+....................   delay_ms(1); 
+0105:  MOVLW  01
+0106:  MOVWF  37
+0107:  CALL   004
+....................   sen3=read_adc();   // sen3 -->sensor3 
+0108:  BSF    1F.2
+0109:  BTFSC  1F.2
+010A:  GOTO   109
+010B:  CLRF   25
+010C:  MOVF   1E,W
+010D:  MOVWF  24
+....................   delay_ms(1); 
+010E:  MOVLW  01
+010F:  MOVWF  37
+0110:  CALL   004
+....................   delay_ms(37); 
+0111:  MOVLW  25
+0112:  MOVWF  37
+0113:  CALL   004
+....................   return sen3; 
+0114:  MOVF   24,W
+0115:  MOVWF  78
+....................  } 
+....................  
+.................... //Leo el valor del sensor4 -> AN3 ------------------------------------// 
+....................  int sensor4 (void){ 
+....................   set_adc_channel(0); 
+*
+0137:  MOVLW  00
+0138:  MOVWF  78
+0139:  MOVF   1F,W
+013A:  ANDLW  C7
+013B:  IORWF  78,W
+013C:  MOVWF  1F
+....................   delay_ms(1); 
+013D:  MOVLW  01
+013E:  MOVWF  37
+013F:  CALL   004
+....................   sen4=read_adc();   // sen4 -->sensor4 
+0140:  BSF    1F.2
+0141:  BTFSC  1F.2
+0142:  GOTO   141
+0143:  CLRF   27
+0144:  MOVF   1E,W
+0145:  MOVWF  26
+....................   delay_ms(1); 
+0146:  MOVLW  01
+0147:  MOVWF  37
+0148:  CALL   004
+....................   delay_ms(37); 
+0149:  MOVLW  25
+014A:  MOVWF  37
+014B:  CALL   004
+....................   return sen4; 
+014C:  MOVF   26,W
+014D:  MOVWF  78
+....................  } 
+....................  
+....................  
+.................... //Efectúa el ensayo completo, guardando datos en la EEPROM---------// 
+.................... void realizar_ensayo(void){ 
+....................    int i; 
+....................  
+....................       s1 = sensor1 (); 
+*
+00A6:  CLRF   29
+00A7:  MOVF   78,W
+00A8:  MOVWF  28
+....................        
+....................       printf("s1:%ld \r",s1); 
+00A9:  MOVLW  73
+00AA:  BTFSS  0C.4
+00AB:  GOTO   0AA
+00AC:  MOVWF  19
+00AD:  MOVLW  31
+00AE:  BTFSS  0C.4
+00AF:  GOTO   0AE
+00B0:  MOVWF  19
+00B1:  MOVLW  3A
+00B2:  BTFSS  0C.4
+00B3:  GOTO   0B2
+00B4:  MOVWF  19
+00B5:  MOVLW  10
+00B6:  MOVWF  04
+00B7:  MOVF   29,W
+00B8:  MOVWF  38
+00B9:  MOVF   28,W
+00BA:  MOVWF  37
+00BB:  CALL   019
+00BC:  MOVLW  20
+00BD:  BTFSS  0C.4
+00BE:  GOTO   0BD
+00BF:  MOVWF  19
+00C0:  MOVLW  0D
+00C1:  BTFSS  0C.4
+00C2:  GOTO   0C1
+00C3:  MOVWF  19
+....................       delay_ms(10); 
+00C4:  MOVLW  0A
+00C5:  MOVWF  37
+00C6:  CALL   004
+....................       
+....................       s2 = sensor2 (); 
+*
+00DE:  CLRF   2B
+00DF:  MOVF   78,W
+00E0:  MOVWF  2A
+....................       
+....................       printf("s2:%4ld \r",s2); 
+00E1:  MOVLW  73
+00E2:  BTFSS  0C.4
+00E3:  GOTO   0E2
+00E4:  MOVWF  19
+00E5:  MOVLW  32
+00E6:  BTFSS  0C.4
+00E7:  GOTO   0E6
+00E8:  MOVWF  19
+00E9:  MOVLW  3A
+00EA:  BTFSS  0C.4
+00EB:  GOTO   0EA
+00EC:  MOVWF  19
+00ED:  MOVLW  02
+00EE:  MOVWF  04
+00EF:  MOVF   2B,W
+00F0:  MOVWF  38
+00F1:  MOVF   2A,W
+00F2:  MOVWF  37
+00F3:  CALL   019
+00F4:  MOVLW  20
+00F5:  BTFSS  0C.4
+00F6:  GOTO   0F5
+00F7:  MOVWF  19
+00F8:  MOVLW  0D
+00F9:  BTFSS  0C.4
+00FA:  GOTO   0F9
+00FB:  MOVWF  19
+....................       delay_ms(10); 
+00FC:  MOVLW  0A
+00FD:  MOVWF  37
+00FE:  CALL   004
+....................       s3 = sensor3 (); 
+*
+0116:  CLRF   2D
+0117:  MOVF   78,W
+0118:  MOVWF  2C
+....................       
+....................       printf("s3:%4ld \r",s3); 
+0119:  MOVLW  73
+011A:  BTFSS  0C.4
+011B:  GOTO   11A
+011C:  MOVWF  19
+011D:  MOVLW  33
+011E:  BTFSS  0C.4
+011F:  GOTO   11E
+0120:  MOVWF  19
+0121:  MOVLW  3A
+0122:  BTFSS  0C.4
+0123:  GOTO   122
+0124:  MOVWF  19
+0125:  MOVLW  02
+0126:  MOVWF  04
+0127:  MOVF   2D,W
+0128:  MOVWF  38
+0129:  MOVF   2C,W
+012A:  MOVWF  37
+012B:  CALL   019
+012C:  MOVLW  20
+012D:  BTFSS  0C.4
+012E:  GOTO   12D
+012F:  MOVWF  19
+0130:  MOVLW  0D
+0131:  BTFSS  0C.4
+0132:  GOTO   131
+0133:  MOVWF  19
+....................       delay_ms(10);  
+0134:  MOVLW  0A
+0135:  MOVWF  37
+0136:  CALL   004
+....................       s4 = sensor4 (); 
+*
+014E:  CLRF   2F
+014F:  MOVF   78,W
+0150:  MOVWF  2E
+....................       
+....................       printf("s4:%4ld \r",s4); 
+0151:  MOVLW  73
+0152:  BTFSS  0C.4
+0153:  GOTO   152
+0154:  MOVWF  19
+0155:  MOVLW  34
+0156:  BTFSS  0C.4
+0157:  GOTO   156
+0158:  MOVWF  19
+0159:  MOVLW  3A
+015A:  BTFSS  0C.4
+015B:  GOTO   15A
+015C:  MOVWF  19
+015D:  MOVLW  02
+015E:  MOVWF  04
+015F:  MOVF   2F,W
+0160:  MOVWF  38
+0161:  MOVF   2E,W
+0162:  MOVWF  37
+0163:  CALL   019
+0164:  MOVLW  20
+0165:  BTFSS  0C.4
+0166:  GOTO   165
+0167:  MOVWF  19
+0168:  MOVLW  0D
+0169:  BTFSS  0C.4
+016A:  GOTO   169
+016B:  MOVWF  19
+....................       delay_ms(10);  
+016C:  MOVLW  0A
+016D:  MOVWF  37
+016E:  CALL   004
+....................       delay_ms(TIEMPO_ENTRE_LECTURAS); 
+016F:  MOVLW  0A
+0170:  MOVWF  37
+0171:  CALL   004
+0172:  BCF    0A.3
+0173:  BCF    0A.4
+0174:  GOTO   1A6 (RETURN)
+....................    } 
+....................  
+....................  
+....................  
+....................  
+.................... //-----------------------------------------------------------------// 
+.................... // Programa Principal ---------------------------------------------// 
+.................... //-----------------------------------------------------------------// 
+.................... void main() { 
+0175:  MOVF   03,W
+0176:  ANDLW  1F
+0177:  MOVWF  03
+0178:  MOVLW  19
+0179:  BSF    03.5
+017A:  MOVWF  19
+017B:  MOVLW  A6
+017C:  MOVWF  18
+017D:  MOVLW  90
+017E:  BCF    03.5
+017F:  MOVWF  18
+0180:  MOVLW  FF
+0181:  MOVWF  34
+0182:  BSF    03.5
+0183:  BSF    1F.0
+0184:  BSF    1F.1
+0185:  BSF    1F.2
+0186:  BCF    1F.3
+0187:  MOVLW  07
+0188:  MOVWF  1C
+0189:  BCF    03.7
+....................    int i; 
+....................   set_tris_a(0xFF);      // Puerto A todo entradas 
+018A:  MOVLW  FF
+018B:  MOVWF  05
+....................   port_b_pullups(FALSE); // Resistencias de polarización 
+018C:  BSF    01.7
+....................   set_tris_b(0x38);      // 
+018D:  MOVLW  38
+018E:  MOVWF  06
+....................   set_tris_c(0x00);      // Puerto C todo salidas 
+018F:  MOVLW  00
+0190:  MOVWF  07
+0191:  BCF    03.5
+0192:  MOVWF  34
+....................   set_tris_d(0x00);     // Puerto D todo salidas 
+0193:  BSF    03.5
+0194:  MOVWF  08
+....................  
+....................   //Configuro los canales del ADC 
+....................   SETUP_ADC_PORTS(AN0_AN1_AN2_AN3_AN4); 
+0195:  BCF    1F.0
+0196:  BSF    1F.1
+0197:  BCF    1F.2
+0198:  BCF    1F.3
+....................   SETUP_ADC(ADC_CLOCK_DIV_8 ); 
+0199:  BCF    1F.6
+019A:  BCF    03.5
+019B:  BSF    1F.6
+019C:  BCF    1F.7
+019D:  BSF    03.5
+019E:  BCF    1F.7
+019F:  BCF    03.5
+01A0:  BSF    1F.0
+....................   SETUP_VREF(VREF_HIGH | 6 ); 
+01A1:  MOVLW  86
+01A2:  BSF    03.5
+01A3:  MOVWF  1D
+....................  
+....................  
+....................   //Habilito interrupciones 
+....................   //enable_interrupts(int_rda); 
+....................   //enable_interrupts(global); 
+....................  
+....................   while(1){ 
+....................   realizar_ensayo(); 
+01A4:  BCF    03.5
+01A5:  GOTO   08F
+01A6:  GOTO   1A5
+....................   //printf("%4ld \r",md); 
+....................   } 
+....................  } 
+....................  
+01A7:  SLEEP
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+
+Configuration Fuses:
+   Word  1: 3F71   XT NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

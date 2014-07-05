@@ -7,7 +7,7 @@ CCSVersion=5.008
 [Target Data]
 FileList=SerialWrite.c
 [Directories]
-Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite2_PR\
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite2_PR\;D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite2_F\
 [D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite2_PR\SerialWrite]
 Type=4
 [mru-list]

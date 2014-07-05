@@ -1,0 +1,7 @@
+>>> Warning 203 "RecepcionAN0Serial.c" Line 110(1,1): Condition always TRUE
+>>> Warning 202 "RecepcionAN0Serial.c" Line 17(6,8): Variable never used:   md
+>>> Warning 202 "RecepcionAN0Serial.c" Line 64(8,9): Variable never used:   i
+>>> Warning 202 "RecepcionAN0Serial.c" Line 93(8,9): Variable never used:   i
+      Memory usage:   ROM=5%      RAM=7% - 10%
+      0 Errors,  4 Warnings.
+Build Successful.

@@ -22,7 +22,7 @@ Lines Stmts  %   Files
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     21   2    1             @delay_ms1
-0      8   1    0   376  4.0  @const626
+0      8   1    0             @const626
  Inline         3   463  4.3  lcd_read_byte
 0     14   1    1   134  2.2  lcd_send_nibble
 0     58   5    3   317  4.3  lcd_send_byte
@@ -34,26 +34,26 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0    117  10   13             @MULFF
 0    204  17   14             @DIVFF
 0     33   3    4             @SFTOI
-0      4   0    0    43  1.5  @const677
-0     86   7    5    43  1.5  @PSTRINGCN7_647
+0      4   0    0             @const677
+0     86   7    5             @PSTRINGCN7_647
  Inline         5             @FTOSD
 0     79   7   13             @DIV3232
-0    226  19   13             @PRINTF_L32D_647FPFPF
+0    226  19   13   108  1.7  @PRINTF_L32D_647FPFPF
 0     17   1    0   108  1.7  Ini_USART
 0     10   1    1    43  1.5  USART_SendC
- Inline         0    43  1.5  @cinit1
+ Inline         0             @cinit1
 
 Program metrics:
-    Functions               13
+    Functions               10
     Statements              87
     Comments                181
-    Volume (V)              4846
-    Difficulty (D)          40.2
-    Effort to implement (E) 194680
-    Time to implement (T)   3 hours, 0 minutes
+    Volume (V)              4056
+    Difficulty (D)          32.6
+    Effort to implement (E) 132402
+    Time to implement (T)   2 hours, 3 minutes
     Est Delivered Bugs (B)  1
     Cyclomatic Complexity   7
-    Maintainability (MI)    85
+    Maintainability (MI)    120
 
  Segment     Used  Free
 -----------  ----  ----

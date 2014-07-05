@@ -1,0 +1,19 @@
+#include <16f877a.h>
+//#device ICD=TRUE
+#fuses HS,NOWDT,NOPROTECT,NOLVP 
+#use delay(clock=10000000)  
+#use FAST_IO(D) 
+
+void main()
+{
+   SET_TRIS_D(0x00);
+   OUTPUT_D(0x00);
+   while(TRUE)
+   {
+      output_high(PIN_D0);
+      delay_ms(600);
+      output_low(PIN_D0);
+      delay_ms(600);
+   }
+
+}

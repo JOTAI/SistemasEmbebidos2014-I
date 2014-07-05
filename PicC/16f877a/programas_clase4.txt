@@ -1,0 +1,417 @@
+ADC
+PROGRAMA1
+******************************************************************
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+
+
+void main()
+{
+	unsigned long dig;
+	lcd_init();
+	setup_adc_ports(AN0_AN1_AN3);
+	setup_adc(adc_clock_div_32);
+	
+	
+	while(1)
+	{	
+	set_adc_channel(0);//CONVIERTE CANAL 0
+	dig=read_adc();//GUARDA EN DIG
+	delay_ms(150);
+	printf(lcd_putc,"\f%lu",dig);//MUESTRA
+	}	
+	
+
+
+}
+
+******************************************************************
+con 2 canales
+PROGRAMA 2
+
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+
+
+void main()
+{
+	unsigned long dig,dig1;
+	lcd_init();
+	setup_adc_ports(AN0_AN1_AN3);
+	setup_adc(adc_clock_div_32);
+	
+	
+	while(1)
+	{	
+	set_adc_channel(0);//CONVIERTE CANAL 0
+	dig=read_adc();//GUARDA EN DIG
+	delay_ms(150);
+	set_adc_channel(1);//CONVIERTE CANAL 0
+	dig1=read_adc();//GUARDA EN DIG
+	delay_ms(150);
+	printf(lcd_putc,"\f%lu",dig);//MUESTRA
+	printf(lcd_putc,"\n%lu",dig1);//MUESTRA
+	}	
+	
+
+
+}
+
+***********************************************************************
+PROGRAMA3
+CON FUNCIONES
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+
+void inicializa_adc()
+{
+	setup_adc_ports(AN0_AN1_AN3);
+	setup_adc(adc_clock_div_32);
+}
+
+void kernel()
+{
+	unsigned long dig,dig1;
+	while(1)
+	{	
+	set_adc_channel(0);//CONVIERTE CANAL 0
+	dig=read_adc();//GUARDA EN DIG
+	set_adc_channel(1);//CONVIERTE CANAL 0
+	dig1=read_adc();//GUARDA EN DIG
+	delay_ms(150);
+	printf(lcd_putc,"\f%lu",dig);//MUESTRA
+	printf(lcd_putc,"\n%lu",dig1);//MUESTRA
+	}
+	
+}
+void main()
+{
+	
+	lcd_init();
+	inicializa_adc();
+	kernel();
+}
+
+*****************************************************
+PROGRAMA 4
+
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+
+void inicializa_adc()
+{
+	setup_adc_ports(AN0_AN1_AN3);
+	setup_adc(adc_clock_div_32);
+}
+
+void lectura_adc(int canal)
+{
+	unsigned long dig;
+	set_adc_channel(canal);//CONVIERTE CANAL 0
+	dig=read_adc();//GUARDA EN DIG
+	delay_ms(150);
+	printf(lcd_putc,"\f%lu",dig);//MUESTRA
+	
+}
+void main()
+{
+	
+	lcd_init();
+	inicializa_adc();
+	
+	
+	while(1)
+	{
+		lectura_adc(0);		
+	}	
+	
+
+
+}
+
+
+*****************************************************************
+PROGRAMA 5 
+CON FUNCIONES DE RETORNO
+
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+
+void inicializa_adc()
+{
+	setup_adc_ports(AN0_AN1_AN3);
+	setup_adc(adc_clock_div_32);
+}
+
+int  lectura(int canal)
+{
+	unsigned long conversion;
+	set_adc_channel(canal);//elige que canal convierte
+	conversion=read_adc();//guarda valor leido
+	return (conversion);//retorna el valor de conversion
+	
+}
+void main()
+{	
+	
+	unsigned long dig_s1,dig_s2;
+	lcd_init();
+	inicializa_adc();
+	
+	
+	while(1)
+	{
+		dig_s1=lectura(0);//devuelve valor del canal 0
+		dig_s2=lectura(1);//devuelve valor del canal 1
+		delay_ms(150);
+		printf(lcd_putc,"\fS1: %lu",dig_s1);
+		printf(lcd_putc,"\nS2: %lu",dig_s2);	
+	}	
+	
+}
+**********************************************************************
+PROGRAMA 6
+LM35 CON VREF 3V
+ A SIMPLE TANTEO
+
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+
+
+void init_adc()
+{
+	setup_adc_ports(AN0_AN1_VSS_VREF);
+	setup_adc(adc_clock_div_32);
+}
+
+void main()
+{	
+	
+	unsigned long TempDig=0;
+	lcd_init();
+	init_adc();
+	while(1)
+	{
+		set_adc_channel(0);
+		TempDig=read_adc()*29/100+1;
+		delay_ms(150);
+		printf(lcd_putc,"\fTemp: %lu",TempDig);
+	}
+	
+	
+	
+}
+
+*******************************************************
+PROGRAMA 7
+CON LM35 DEDUCIENDO ( VER EN EL CUADERNO)
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+
+
+void init_adc()
+{
+	setup_adc_ports(AN0_AN1_VSS_VREF);
+	setup_adc(adc_clock_div_32);
+}
+
+void main()
+{	
+	
+	unsigned long TempDig=0;
+	float escalado;
+	lcd_init();
+	init_adc();
+	while(1)
+	{
+		set_adc_channel(0);
+		TempDig=read_adc();
+		escalado=((TempDig*3)/1023.0)/0.01;
+		delay_ms(150);
+		printf(lcd_putc,"\fTemp: %f",escalado);
+	}
+	
+	
+	
+}
+**********************************************************************
+
+#include "16f877a.h"
+#device ADC=10 // LEE 10 BITS
+#fuses XT,NOWDT
+#use delay(clock=4000000)
+#include "LCD.c"
+#include "TECLADO.c"
+
+
+
+void init_adc()
+{
+	setup_adc_ports(AN0_AN1_VSS_VREF);
+	setup_adc(adc_clock_div_32);
+}
+
+int Seteo_temp()
+{
+	int t0,t1,Temp;
+	lcd_putc("Buen dia");
+	delay_ms(800);
+	lcd_putc("\fConfigure \ntemp.fija: ");
+	t1=teclado();
+	lcd_gotoxy(12,2);
+	lcd_putc(t1);
+	lcd_gotoxy(13,2);
+	t0=teclado();
+	lcd_putc(t0);
+	Temp=(t1-48)*10+(t0-48);
+	return(Temp);	
+}
+
+long LecturaTemp(int canal)
+{
+	long TempDig;
+	float TempReal;
+	set_adc_channel(canal);//ingresa canal AN0
+	TempDig=read_adc();//lee canal AN0
+	TempReal=((TempDig*3)/1023.0)/0.01;
+	return(TempReal);	
+}
+
+void Ventilacion()
+{
+	output_high(PIN_C0);
+	output_low(PIN_C1);	
+}
+
+void Termostato()
+{
+	output_high(PIN_C1);
+	output_low(PIN_C0);
+}
+
+
+
+void main()
+{	
+	float TempReal;
+	int TempFija;
+	
+	lcd_init();//inicializa lcd
+	init_adc();//funcion donde se configura adc
+	TempFija=Seteo_temp();//funcion para ingresar temp
+	
+	while(1)
+	{
+		TempReal=LecturaTemp(0);//lee por canal 0
+		delay_ms(150);
+		printf(lcd_putc,"\fTemp: %.1f",TempReal);
+		if(TempReal>TempFija)
+		{
+			Ventilacion();
+		}
+		else
+		{
+			Termostato();
+		}
+
+
+	}
+	
+		
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

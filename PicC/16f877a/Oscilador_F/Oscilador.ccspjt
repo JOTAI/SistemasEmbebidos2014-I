@@ -1,0 +1,23 @@
+[PROJECT]
+Target=Oscilador.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.008
+Compiler=PCM
+CCSVersion=5.008
+[Target Data]
+FileList=Oscilador.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Oscilador\Oscilador]
+Type=4
+[mru-list]
+1=Oscilador.c
+[Opened Files]
+1=Oscilador.c
+2=
+3=
+[Oscilador.c]
+Type=4
+[Units]
+Count=1
+1=Oscilador (main)

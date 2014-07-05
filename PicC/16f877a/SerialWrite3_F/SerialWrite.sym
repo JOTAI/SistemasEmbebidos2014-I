@@ -113,14 +113,14 @@ ROM Allocation:
 0003FB  @cinit2
 
 Project Directory:
-    D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite3_PR\
+    D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite3_F\
 
 Project Files:
-    SerialWrite.c                                           [26-jun-14 12:38  CRC=0158E861]
+    SerialWrite.c                                           [01-jul-14 11:25  CRC=0B0B7428]
     C:\Program Files (x86)\PICC\Devices\16f877a.h           [03-jul-13 14:28  CRC=4E65664C]
     LCD.C                                                   [05-sep-07 09:54  CRC=EE70690B]
 
-Source signature=2C9F20C3
+Source signature=3651AC8A
 
 Units:
     SerialWrite (main)

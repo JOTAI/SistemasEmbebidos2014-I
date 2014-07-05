@@ -19,10 +19,29 @@
 02A-02D _Randseed
 02E-032 entrada
 033-034 Boton1_UP
-035.0   letra_in
-036     @delay_ms1.P1
-036     Cargar_configuracion.@SCRATCH1
-037     Cargar_configuracion.@SCRATCH2
+035-036 Boton2_UP
+037-038 Boton3_UP
+039-03A Boton4_UP
+03B-03C Boton5_UP
+03D-03E Boton1_DOWN
+03F-040 Boton2_DOWN
+041-042 Boton3_DOWN
+043-044 Boton4_DOWN
+045-046 Boton5_DOWN
+047-04F ClaveNum
+050-051 Clave1
+052-053 Clave2
+054-055 Clave3
+056.0   letra_in
+057.0   SecClav.estado
+057     MAIN.@SCRATCH1
+057     Rutina.@SCRATCH1
+058     @delay_ms1.P1
+058-059 strcmp.s1
+058     MAIN.@SCRATCH2
+058     SecClav.@SCRATCH1
+05A-05B strcmp.s2
+05C     strcmp.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -32,8 +51,8 @@
 09C.6   C1OUT
 09C.7   C2OUT
 0FF     @INTERRUPT_AREA
-10D-10E @WRITE_PROGRAM_MEMORY8.P1
-10D-10E @READ_PROGRAM_MEMORY8.P2
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
 17F     @INTERRUPT_AREA
 1FF     @INTERRUPT_AREA
 27F     @INTERRUPT_AREA
@@ -66,15 +85,28 @@ F7F     @INTERRUPT_AREA
 FFF     @INTERRUPT_AREA
 
 ROM Allocation:
-000031  @const905.call
-000037  RDA_isr
-00003C  @GETCH_BIU_1
-000052  Cargar_configuracion
-00006D  Configurar_interrupciones
-000084  @delay_ms1
-00009B  MAIN
-00009B  @cinit1
-0000AE  @cinit2
+000031  @const919.call
+000037  @const920.call
+00003D  @const921.call
+000043  @const922.call
+000049  @const923.call
+00004F  @const924.call
+000055  @const925.call
+00005B  @const926.call
+000061  @const927.call
+000067  @const928.call
+00006D  @const929.call
+000073  @const930.call
+000079  @const931.call
+00007F  RDA_isr
+000084  @GETCH_BIU_1
+00009A  strcmp
+0000DE  @delay_ms1
+0000F3  SecClav
+000142  Rutina
+0001E3  @cinit1
+0001E3  MAIN
+0001F6  @cinit2
 0136  StrtoulGO
 0136  StrtolGO
 
@@ -82,7 +114,7 @@ Project Directory:
     D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\Bluetooth_Maestro1_PR\
 
 Project Files:
-    Bluetooth_Maestro1.c                                    [29-jun-14 12:24  CRC=660CF3CD]
+    Bluetooth_Maestro1.c                                    [03-jul-14 06:28  CRC=4DC3B33A]
     C:\Program Files (x86)\PICC\Devices\16F877A.h           [03-jul-13 14:28  CRC=4E65664C]
     C:\Program Files (x86)\PICC\Drivers\string.h            [14-jul-11 10:13  CRC=23EDEC8F]
     C:\Program Files (x86)\PICC\Drivers\stddef.h            [16-jul-10 09:27  CRC=897CEC6C]
@@ -90,7 +122,7 @@ Project Files:
     C:\Program Files (x86)\PICC\Drivers\stdio.h             [31-jul-07 13:24  CRC=4E4534F4]
     C:\Program Files (x86)\PICC\Drivers\stdlib.h            [08-jun-11 14:39  CRC=0B6669CF]
 
-Source signature=F40E3D45
+Source signature=DBC4FCB2
 
 Units:
     Bluetooth_Maestro1 (main)

@@ -1,9 +1,9 @@
 ÀÄAlarma_Bluetooth
-   ÃÄMAIN  0/21  Ram=0
+   ÃÄMAIN  0/22  Ram=0
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄCargar_configuracion  0/11  Ram=0
-   ³  ÃÄConfigurar_interrupciones  0/17  Ram=0
+   ³  ÃÄConfigurar_interrupciones  0/16  Ram=0
    ³  ÀÄ@delay_ms1  0/23  Ram=1
    ÃÄext_isr  0/6  Ram=1
    ÃÄrb_isr  0/15  Ram=1
-   ÀÄTIMER0_isr  0/12  Ram=0
+   ÀÄTIMER0_isr  0/20  Ram=0

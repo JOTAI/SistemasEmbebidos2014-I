@@ -1,6 +1,6 @@
-CCS PCM C Compiler, Version 5.008, 5967               26-jun-14 12:38
+CCS PCM C Compiler, Version 5.008, 5967               01-jul-14 11:25
 
-               Filename:   D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite3_PR\SerialWrite.lst
+               Filename:   D:\IGNACIO\ProgramacionGitHub\SistemasEmbebidos2014-I\PicC\16f877a\SerialWrite3_F\SerialWrite.lst
 
                ROM used:   1166 words (15%)
                            Largest free fragment is 2048
@@ -1294,7 +1294,7 @@ CCS PCM C Compiler, Version 5.008, 5967               26-jun-14 12:38
 042D:  DECFSZ 77,F
 042E:  GOTO   42D
 042F:  NOP
-....................       Radc = Radc*255.0/1024; 
+....................       Radc = Radc*5.0/1024; 
 0430:  MOVF   24,W
 0431:  MOVWF  37
 0432:  MOVF   23,W
@@ -1305,9 +1305,9 @@ CCS PCM C Compiler, Version 5.008, 5967               26-jun-14 12:38
 0437:  MOVWF  34
 0438:  CLRF   3B
 0439:  CLRF   3A
-043A:  MOVLW  7F
+043A:  MOVLW  20
 043B:  MOVWF  39
-043C:  MOVLW  86
+043C:  MOVLW  81
 043D:  MOVWF  38
 043E:  CALL   0C9
 043F:  MOVF   7A,W
