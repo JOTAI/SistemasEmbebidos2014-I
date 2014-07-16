@@ -6,7 +6,7 @@ Value=0
 [BUILD_TYPE]
 Value=0
 [ACTIVE_TAB]
-Value=Pulso.c
+Value=..\Dimmer2\dimmer.c
 [USE_EEPROM]
 Value=0
 [EEPROM_DEFINITION]
@@ -21,7 +21,7 @@ Count=0
 ActiveImageIndex=-1
 [OPENED_FILES]
 Count=1
-File0=Pulso.c
+File0=..\Dimmer2\dimmer.c
 [EEPROM]
 Count=0
 [ACTIVE_COMMENTS_FILES]

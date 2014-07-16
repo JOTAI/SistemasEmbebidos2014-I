@@ -1,0 +1,116 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004     @WRITE_PROGRAM_MEMORY8.P2
+006     kbd44
+008     lcdlat
+008     PSP_DATA
+008     lcd
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     kbd44_getc.kbd44_call_count
+021.0   kbd44_getc.kbd44_down
+022     kbd44_getc.last_key
+023     kbd44_getc.col
+024-025 strtok.save
+026-029 _Randseed
+02A     MAIN.tecla
+02B     MAIN.i
+02C-034 MAIN.ingreso
+035-03D MAIN.numero
+03E     kbd44_getc.kchar
+03E     lcd_init.i
+03E     MAIN.@SCRATCH1
+03E     @PSTRINGC7_93.@SCRATCH1
+03F     kbd44_getc.row
+03F     lcd_init.@SCRATCH1
+03F     MAIN.@SCRATCH2
+03F     @PSTRINGC7_93.@SCRATCH2
+040     kbd44_getc.@SCRATCH1
+040     @PSTRINGC7_93.@SCRATCH3
+041     lcd_putc.c
+042     lcd_gotoxy.x
+042     @delay_ms1.P1
+043     lcd_gotoxy.y
+044     lcd_gotoxy.address
+045     lcd_gotoxy.@SCRATCH1
+046     lcd_send_byte.address
+047     lcd_send_byte.n
+048     lcd_read_byte.low
+048     lcd_send_byte.@SCRATCH1
+049     lcd_send_nibble.n
+049     lcd_read_byte.high
+04A     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+088     lcdtris
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+002B  @delay_ms1
+0004  LCD_INIT_STRING
+005A  lcd_read_byte
+004E  lcd_read_nibble
+0040  lcd_send_nibble
+0054  lcd_send_byte
+0094  lcd_init
+013B  lcd_gotoxy
+014D  lcd_putc
+000C  KEYS
+0028  kbd44_init
+00CB  kbd44_getc
+0133  @goto10134
+01C2  MAIN
+0020  @const388
+017A  @PSTRINGC7_93
+01C2  @cinit
+0136  StrtoulGO
+0136  StrtolGO
+
+
+User Memory space: 
+
+User Memory space: 
+
+Project Directory:
+    I:\Dimmer2\
+
+Project Files:
+    dimmer2.c
+    C:\Program Files (x86)\PICC\devices\16F877A.h
+    C:\Program Files (x86)\PICC\drivers\lcd.c
+    C:\Program Files (x86)\PICC\drivers\kbd44.c
+    C:\Program Files (x86)\PICC\drivers\stdlib.h
+    C:\Program Files (x86)\PICC\drivers\stddef.h
+    C:\Program Files (x86)\PICC\drivers\string.h
+    C:\Program Files (x86)\PICC\drivers\ctype.h
+
+Units:
+    I:\Dimmer2\dimmer2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      dimmer2.err
+    Ext Symbols: dimmer2.esym
+    INHX8:       dimmer2.hex
+    Symbols:     dimmer2.sym
+    List:        dimmer2.lst
+    Debug/COFF:  dimmer2.cof
+    Project:     dimmer2.PJT
+    Call Tree:   dimmer2.tre
+    Statistics:  dimmer2.sta
