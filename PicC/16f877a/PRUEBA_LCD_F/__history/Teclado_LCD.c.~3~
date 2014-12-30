@@ -1,0 +1,31 @@
+#include <16f877a.h>
+#FUSES HS,NOWDT,NOPROTECT,NOLVP 
+#USE delay(clock=20000000)
+#include "teclado.c"
+#include "LCD.C"
+
+
+void main()
+{
+   int m,n;   
+   lcd_init();
+      while(1)
+         {
+            m=teclado();
+            if(m!=0)
+            {
+             lcd_putc(m);
+             delay_ms(50);
+             n++;
+             if(n==16)
+             {
+               lcd_putc("\n");
+             }
+             if(n==32)
+             {
+               lcd_putc("\f");
+               n=0;
+             }
+          }  
+         }
+}

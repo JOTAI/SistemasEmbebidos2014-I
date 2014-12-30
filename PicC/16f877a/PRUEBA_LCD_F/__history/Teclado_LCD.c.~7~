@@ -1,0 +1,82 @@
+#include <16f877a.h>
+#FUSES HS,NOWDT,NOPROTECT,NOLVP 
+#USE delay(clock=20000000)
+
+#BYTE   tecla_port=0x06
+#BIT   rbif=0x0B.0
+#BIT   rbpu=0x81.7
+#INCLUDE "LCD.C"
+
+// Declaracion de variables
+int   tecla_temp,tecla,i;
+int   const tabla_tecla[17]={0xD7,0xEE,0xDE,0xBE,0xED,0xDD,0xBD,0xEB,0xDB,0xBB,0xE7,0xB7,0x77,0x7B,0x7D,0x7E,0x80};
+int   const tabla_ascii[16]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+//*************************************************
+
+// Declaracion de la funcion
+int teclado();
+
+
+void main()
+{
+   int m,n;   
+   lcd_init();
+      while(1)
+         {
+            m=teclado();
+            if(m!=0)
+            {
+             lcd_putc(m);
+             delay_ms(50);
+             n++;
+             if(n==16)
+             {
+               lcd_putc("\n");
+             }
+             if(n==32)
+             {
+               lcd_putc("\f");
+               n=0;
+             }
+          }  
+         }
+}
+
+
+
+   int teclado()
+   {
+      
+      set_tris_b(0xF0);
+      do
+      {
+         do
+         {
+            tecla_port=0xF0;
+            rbpu=0;
+            rbif=0;
+            i=1;
+            while(rbif==0){}
+            delay_ms(30);
+            tecla_temp=0xFE;
+            do
+            {
+               tecla_port=tecla_temp;
+               tecla=tecla_temp;
+               tecla_temp=(tecla_temp<<1)+1;
+               i++;
+            }while((i<=4) && (tecla_port==tecla));
+         }while(tecla_port==tecla);
+         tecla=tecla_port;
+         i=0;
+         while((tabla_tecla[i]!=tecla) && (i<16))
+         {
+            i++;
+         }
+      }while(i==16);      
+      tecla=tabla_ascii[i];
+      rbif=0;
+      while(rbif==0){}
+      delay_ms(30);
+      return(tecla);
+}
